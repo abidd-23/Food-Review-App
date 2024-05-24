@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block start %}
+  <h1 class = "container">Ye ghum kya dil ki aadat hai?</h1>
+  <p class = "container">ye ġham kyā dil kī 'ādat hai nahīñ to 
+
+    kisī se kuchh shikāyat hai nahīñ to 
+    
+    kisī ke bin kisī kī yaad ke bin 
+    
+    jiye jaane kī himmat hai nahīñ to 
+    
+    hai vo ik ḳhvāb-e-be-ta.abīr us ko 
+    
+    bhulā dene kī nīyat hai nahīñ to 
+    
+    kisī sūrat bhī dil lagtā nahīñ haañ 
+    
+    to kuchh din se ye hālat hai nahīñ to </p>
+
+    <table class = "container">
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Alive</th>
+      </tr>
+      {% for people in peoples %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{people.name}}</td>
+        <td>{{people.age}}</td>
+        <td {% if people.age < 18 %} style="background: red;" {% endif %}>{% if people.age >= 18 %}
+          👍
+          {% else %}
+          👎
+          {% endif %}
+
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <p>
+      {% if "kela" in fruits %}
+        Kela  hai bhaya
+      {% elif "mango" in fruits %}
+        Ha bhai aam hai
+      {% else %}
+        Na bhai kela na hai
+      {% endif %}
+    </p>
+    <a href="/contact/">Contact</a>
+     |
+    <a href="/about/">About</a>
+
+{% endblock %}
